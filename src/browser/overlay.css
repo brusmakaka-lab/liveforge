@@ -1,0 +1,21 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  overflow: hidden;
+  min-height: 100%;
+  color: #f4f7fb;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+.browser-alerts {
+  width: 480px;
+  padding: 12px;
+}
+.browser-alerts .alert-stack {
+  position: relative;
+}

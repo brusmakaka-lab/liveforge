@@ -1,0 +1,133 @@
+.alert-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.gift-alert {
+  --tier: #53e5c0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  padding: 18px 14px;
+  border: 1px solid var(--tier);
+  border-left: 5px solid var(--tier);
+  border-radius: 18px;
+  background: rgba(14, 20, 31, 0.96);
+  color: #f4f8ff;
+  box-shadow: 0 8px 22px #0005;
+  animation: alert-in 0.25s ease-out;
+  -webkit-app-region: drag;
+}
+.gift-alert.tier-low {
+  --tier: #91a1b8;
+}
+.gift-alert.tier-high {
+  --tier: #bc93ff;
+}
+.gift-alert.tier-epic {
+  --tier: #ffc96b;
+  background: linear-gradient(120deg, #33241cf5, #141627f5);
+}
+.gift-art {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #ffffff0c;
+  font-size: 32px;
+}
+.gift-art img {
+  max-width: 52px;
+  max-height: 52px;
+}
+.gift-copy {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.gift-copy small {
+  color: var(--tier);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+.gift-copy strong {
+  font-size: 19px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+.gift-caption {
+  font-size: 12px;
+  color: #b4c4d5;
+  overflow-wrap: anywhere;
+}
+.gift-count {
+  color: var(--tier);
+  font-size: 27px;
+  font-variant-numeric: tabular-nums;
+}
+.gift-alert.leaving {
+  animation: alert-out 0.25s ease-in forwards;
+}
+.overlay-root,
+.overlay-root body,
+.overlay-root #root {
+  background: transparent !important;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.overlay-scene {
+  width: 100%;
+  padding-top: 30px;
+  font-family: 'Segoe UI', sans-serif;
+}
+.desktop-alerts {
+  position: fixed;
+  right: 22px;
+  bottom: 40px;
+  width: 450px;
+  z-index: 80;
+  pointer-events: none;
+}
+.desktop-alerts .gift-alert {
+  -webkit-app-region: no-drag;
+}
+.overlay-controls {
+  margin-top: 20px;
+}
+.preview-note {
+  color: #a8bbca;
+  font-size: 12px;
+}
+@keyframes alert-in {
+  from {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes alert-out {
+  to {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gift-alert,
+  .gift-alert.leaving {
+    animation-duration: 0.01s;
+  }
+}
